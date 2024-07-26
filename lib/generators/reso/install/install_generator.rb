@@ -8,7 +8,7 @@ module Reso
       desc "Copy RESO Data Dictionary migration files to your application."
 
       def self.next_migration_number(path)
-        Time.now.utc.strftime("%Y%m%d%H%M%S%L")
+        Time.now.utc.strftime("%Y%m%d%H%M%S")
       end
 
       def create_model_file
@@ -33,7 +33,7 @@ module Reso
           reso_property_structures
         ].each do |name|
           migration_template "create_#{name}.rb", "db/migrate/create_#{name}.rb"
-          sleep 0.1
+          sleep 1
         end
         migration_template "populate_reso_seed_data.rb", "db/migrate/populate_reso_seed_data.rb"
         template "reso_dd_2.0_lookups.tsv", "db/data/reso_dd_2.0_lookups.tsv"
