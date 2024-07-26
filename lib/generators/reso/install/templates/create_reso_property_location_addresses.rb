@@ -19,11 +19,11 @@ class CreateRESOPropertyLocationAddresses < ActiveRecord::Migration[7.0]
     add_index :reso_property_location_addresses, :carrier_route
     add_index :reso_property_location_addresses, :postal_code
     add_index :reso_property_location_addresses, :postal_code_plus4
-    add_index :reso_property_location_addresses, :street_additional_info
+    add_index :reso_property_location_addresses, :street_additional_info, name: "index_reso_property_location_addresses_on_street_additional_inf"
     add_index :reso_property_location_addresses, :street_name
     add_index :reso_property_location_addresses, :street_number
     add_index :reso_property_location_addresses, :street_number_numeric
-    add_index :reso_property_location_addresses, :street_suffix_modifier
+    add_index :reso_property_location_addresses, :street_suffix_modifier, name: "index_reso_property_location_addresses_on_street_suffix_modifie"
     add_index :reso_property_location_addresses, :township
     add_index :reso_property_location_addresses, :unit_number
     add_index :reso_property_location_addresses, :unparsed_address
